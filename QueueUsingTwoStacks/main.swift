@@ -75,3 +75,30 @@ struct TwoStackQueue: CustomStringConvertible {
     }
 }
 
+func query(_ type: String) -> String {
+    
+    var queue = TwoStackQueue()
+       
+    let queryPrefix = type.prefix(1)
+    
+    switch queryPrefix {
+    case "1":
+        let querySuffix = type.suffix(1)
+        queue.enqueue(Int(querySuffix)!)
+    case "2":
+        queue.dequeue()
+        print(queue.description)
+    case "3":
+        print(queue.peek)
+    default:
+        break
+    }
+    
+    return queue.description
+}
+
+print(query("3"))
+
+
+
+
